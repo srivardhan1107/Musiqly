@@ -6,7 +6,7 @@ let currFolder;
 async function getSongs(folder) {
     currFolder = folder;
     try {
-        let response = await fetch(`/${folder}/songs.json`);
+        let response = await fetch(`${folder}/songs.json`);
         songs = await response.json();
     } catch (e) {
         console.error("Error loading songs.json", e);

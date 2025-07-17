@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musiqly - web player, music for everyone!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+    <nav class="flex ">
+        <div class="l1 flex">
+            <img class="invert" id="MusicLogo" src="svg/logo.svg" alt="logo">
+            <div class="logoName">MUSIQLY</div>
+            <button><img class="invert" src="svg/home.svg" alt="home"></button>
+        </div>
+        <div class="r1 flex">
+            <button>Sign up</button>
+            <button>Log in</button>
+        </div>
+    </nav>
+    <div class="container flex">
+        <div class="left">
+            <div class="library flex">
+                Your Library
+                <div class="close bg">
+                    <img class="bg" src="svg/close.svg" alt="">
+                </div>
+            </div>
+            <div class="songList bg">
+                <ul class="bg">
+                    <!-- <li class="bg"></li> -->
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="qer1 flex">
+                    <div class="qers"><a href="faq">Legal</a></div>
+                    <div class="qers"><a href="faq">Safety & Privacy</a></div>
+                    <div class="qers"><a href="faq">Privacy Policy</a></div>
+                    <div class="qers"><a href="faq">Cookies</a></div>
+                </div>
+                <div class="qer2 flex">
+                    <div class="qers"><a href="faq">About Ads</a></div>
+                    <div class="qers"><a href="faq">Accessibility</a></div>
+                </div>
+                <div class="button">
+                    <button>English</button>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="hamburger bg">
+                <img class="bg" src="svg/ham.svg" alt="">
+            </div>
+            <h1 class="bg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Playlists </h1>
+
+            <div class="cardContainer flex bg">
+                <div data-folder="folder1" class="card ">
+                    <button class="play-button">
+                        <img src="svg/play1.svg" alt="">
+                    </button>
+                    <div class="imgplace"><img class="cardObj" src="img/pic1.jpg" alt="i1"></div>
+                    <h3 class="cardObj">Feel Good Telugu...</h3>
+                    <p class="cardObj">Mood-lifting Telugu tracks to brighten your day!</p>
+                </div>
+                <div data-folder="folder2" class="card ">
+                    <button class="play-button">
+                        <img src="svg/play1.svg" alt="">
+                    </button>
+                    <div class="imgplace"><img class="cardObj" src="img/pic2.jpg" alt="i1">
+                    </div>
+                    <h3 class="cardObj">Bollywood Mash!</h3>
+                    <p class="cardObj">A spicy mix of Bollywood hits, old and new!</p>
+                </div>
+                <div data-folder="folder3" class="card ">
+                    <button class="play-button">
+                        <img src="svg/play1.svg" alt="">
+                    </button>
+                    <div class="imgplace"><img class="cardObj" src="img/pic3.jpg" alt="i1">
+                    </div>
+                    <h3 class="cardObj">English Vibes...</h3>
+                    <p class="cardObj">Chill and catchy English songs for every vibe.</p>
+                </div>
+                <div data-folder="folder4" class="card ">
+                    <button class="play-button">
+                        <img src="svg/play1.svg" alt="">
+                    </button>
+                    <div class="imgplace"><img class="cardObj" src="img/pic4.jpg" alt="i1">
+                    </div>
+                    <h3 class="cardObj">Workout Mode</h3>
+                    <p class="cardObj">High-energy tracks to power your fitness game!</p>
+                </div>
+                <div data-folder="folder5" class="card ">
+                    <button class="play-button">
+                        <img src="svg/play1.svg" alt="">
+                    </button>
+                    <div class="imgplace"><img class="cardObj" src="img/pic5.jpg" alt="i1">
+                    </div>
+                    <h3 class="cardObj">Happy Hits!</h3>
+                    <p class="cardObj">Hits to boost your mood and fill you with happiness!</p>
+                </div>
+                <div data-folder="folder6" class="card ">
+                    <button class="play-button">
+                        <img src="svg/play1.svg" alt="">
+                    </button>
+                    <div class="imgplace"><img class="cardObj" src="img/pic6.jpg" alt="i1">
+                    </div>
+                    <h3 class="cardObj">Party Time</h3>
+                    <p class="cardObj">Get the party started with these dance-floor bangers!</p>
+                </div>
+                <div data-folder="folder7" class="card ">
+                    <button class="play-button">
+                        <img src="svg/play1.svg" alt="">
+                    </button>
+                    <div class="imgplace"><img class="cardObj" src="img/pic7.jpg" alt="i1">
+                    </div>
+                    <h3 class="cardObj">Retro Hits!</h3>
+                    <p class="cardObj">Timeless classics to bring back golden memories.</p>
+                </div>
+                <div data-folder="folder8" class="card ">
+                    <button class="play-button">
+                        <img src="svg/play1.svg" alt="">
+                    </button>
+                    <div class="imgplace"><img class="cardObj" src="img/pic8.jpg" alt="i1">
+                    </div>
+                    <h3 class="cardObj">Telugu 90's</h3>
+                    <p class="cardObj">Nostalgic 90s Telugu hits you’ll always love.</p>
+                </div>
+                <div data-folder="folder9" class="card ">
+                    <button class="play-button">
+                        <img src="svg/play1.svg" alt="">
+                    </button>
+                    <div class="imgplace"><img class="cardObj" src="img/pic9.jpg" alt="i1">
+                    </div>
+                    <h3 class="cardObj">Travel!</h3>
+                    <p class="cardObj">Perfect tunes to soundtrack your next journey.</p>
+                </div>
+                <div data-folder="folder10" class="card ">
+                    <button class="play-button">
+                        <img src="svg/play1.svg" alt="">
+                    </button>
+                    <div class="imgplace"><img class="cardObj" src="img/pic10.jpg" alt="i1">
+                    </div>
+                    <h3 class="cardObj">Global Grooves</h3>
+                    <p class="cardObj">A vibrant mix of hits from every corner of the world. One playlist, endless languages..</p>
+                </div>
+
+
+
+
+            </div>
+            <div class="playbar flex">
+                <div class="seekbar">
+                    <div class="circle"></div>
+                </div>
+                <div class="aboveBar">
+                    <div class="songInfo">
+                        ----
+                    </div>
+                    <div class="playbuttons flex">
+                        <img id="previous" src="svg/prev.svg" alt="">
+                        <img id="play" src="svg/play2.svg" alt="">
+                        <img id="next" src="svg/next.svg" alt="">
+                    </div>
+                    <div class="songTime">
+                        00:00/00:00
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

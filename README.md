@@ -1,6 +1,6 @@
 # Musiqly
 
-— Web Music Player
+— Web Music Player  
 https://musiqly-srivardhan.netlify.app/  
 (check out the full verion)   
 

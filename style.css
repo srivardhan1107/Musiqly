@@ -9,7 +9,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Apply to entire page */
+
 body {
     scrollbar-width: thin;
     scrollbar-color: #95a6a7 #030303;
@@ -473,7 +473,7 @@ a {
         width: 96%;
     }
     .seekbar {
-        width: 98%;
+        width: 94%;
     }
     .hamburger {
         display: block;

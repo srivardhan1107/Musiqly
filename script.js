@@ -3,10 +3,30 @@ let currentSong = new Audio();
 let songs;
 let currFolder;
 
+let playlistFolders = [
+    "folder1",
+    "folder2",
+    "folder3",
+    "folder4",
+    "folder5",
+    "folder6",
+    "folder7",
+    "folder8",
+    "folder9",
+    "folder10"
+];
+
+
+function getNextFolder(current) {
+    let i = playlistFolders.indexOf(current);
+    return i !== -1 && i < playlistFolders.length - 1 ? playlistFolders[i + 1] : null;
+}
+
+
 async function getSongs(folder) {
     currFolder = folder;
     try {
-        let response = await fetch(`${folder}/songs.json`);
+        let response = await fetch(`/${folder}/songs.json`);
         songs = await response.json();
     } catch (e) {
         console.error("Error loading songs.json", e);
@@ -46,14 +66,42 @@ function formatTime(seconds) {
 }
 
 const playMusic = (track, pause = false) => {
-    console.log(songs);
+    //console.log(songs);
     currentSong.src = `/${currFolder}/` + encodeURIComponent(track);
+
+    const song = songs.find(s => s.name === track);
+    const displayName = song?.displayName || track.split("-")[1]?.replace(".mp3", "") || track;
+    const artist = song?.origin || "Unknown Artist";
+
     if (!pause) {
         currentSong.play().catch(e => console.error("Play failed:", e));
         play.src = "svg/Pause.svg";
     }
-    document.querySelector(".songInfo").innerHTML = track.split("-")[1].replace(".mp3","");
+    document.querySelector(".songInfo").innerHTML = track.split("-")[1].replace(".mp3", "");
     document.querySelector(".songTime").innerHTML = "00:00";
+
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: displayName,
+            artist: artist,
+            album: "Web Player",
+            artwork: [
+                { src: 'favicon-new.png', sizes: '96x96', type: 'image/png' },
+                { src: 'favicon-new.png', sizes: '128x128', type: 'image/png' },
+                { src: 'favicon-new.png', sizes: '192x192', type: 'image/png' },
+                { src: 'favicon-new.png', sizes: '256x256', type: 'image/png' }
+            ]
+        });
+
+
+        navigator.mediaSession.setActionHandler("nexttrack", () => {
+            next.click();
+        });
+
+        navigator.mediaSession.setActionHandler("previoustrack", () => {
+            previous.click();
+        });
+    }
 };
 
 async function main() {
@@ -111,6 +159,31 @@ async function main() {
             }
         });
     });
+
+    currentSong.addEventListener("ended", async () => {
+        let currentFile = decodeURIComponent(currentSong.src.split(`${currFolder}/`).pop());
+        let index = songs.findIndex(song => song.name === currentFile);
+
+        if (index < songs.length - 1) {
+            // Play next song in current folder
+            playMusic(songs[index + 1].name);
+        } else {
+            let folderName = currFolder.split("/").pop();
+            let nextFolder = getNextFolder(folderName);
+            if (nextFolder) {
+                let fullPath = `songs/${nextFolder}`;
+                await getSongs(fullPath);
+                if (songs.length > 0) {
+                    playMusic(songs[0].name);
+                }
+            } else {
+                console.log("All playlists finished.");
+                await getSongs("songs/folder1");
+                playMusic(songs[0].name);
+            }
+        }
+    });
 }
+
 
 main();
